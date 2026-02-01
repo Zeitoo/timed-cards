@@ -11,6 +11,7 @@
 			href="styles.css" />
 	</head>
 	<body>
+		<div class="loader"></div>
 		<header>
 			<div>
 				<div>
@@ -30,7 +31,7 @@
 			</div>
 			<nav>
 				<ul>
-					<li>
+					<li class="active">
 						<p>HOME</p>
 					</li>
 					<li>
@@ -80,27 +81,75 @@
 		<div>
 			<div class="wrapper">
 				<div class="card card-1 active first">
-					<div class="contet"></div>
+					<div class="content">
+						<p class="location">Switzerland Alps</p>
+						<p class="title">
+							SAINT <br />
+							ANTONIEN
+						</p>
+					</div>
 				</div>
 				<div class="card card-2 second">
-					<div class="contet"></div>
+					<div class="content">
+						<p class="location">Japan Alps</p>
+						<p class="title">
+							NANGANO <br />
+							PREFECTURE
+						</p>
+					</div>
 				</div>
 				<div class="card card-3 third">
-					<div class="contet"></div>
+					<div class="content">
+						<p class="location">Sahara Desert - Morocco</p>
+						<p class="title">
+							MARRAKECH <br />
+							MEROUGA
+						</p>
+					</div>
 				</div>
 				<div class="card card-4 fourth">
-					<div class="contet"></div>
+					<div class="content">
+						<p class="location">Sierra Nevada - USA</p>
+						<p class="title">
+							YOSEMITE <br />
+							NATIONAL PARAK`
+						</p>
+					</div>
 				</div>
+
 				<div class="card card-5 fiveth">
-					<div class="contet"></div>
+					<div class="content">
+						<p class="location">Tarif Spain</p>
+						<p class="title">
+							LOS LANCES <br />
+							BEACH
+						</p>
+					</div>
+				</div>
+
+				<div class="card card-6 sixth">
+					<div class="content">
+						<p class="location">Cappadocia - Turkey</p>
+						<p class="title">
+						Göreme <br> Valley
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 
-        <div class="content">
-            <h1></h1>
-            
-        </div>
+		<div class="content-details">
+			<p class="location"></p>
+			<p class="title"></p>
+			<p class="description"></p>
+		</div>
+
+		<div class="status">
+			<div>
+				<div class="progress"></div>
+			</div>
+			<p class="counter">0</p>
+		</div>
 	</body>
 
 	<script src="page.js"></script>

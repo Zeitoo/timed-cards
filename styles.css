@@ -4,6 +4,7 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 body {
@@ -12,9 +13,42 @@ body {
 	display: flex;
 	position: relative;
 	height: 100dvh;
-	width: 100dvw;
+	width: 100vw;
 	background-color: #1a1a1a;
 	color: #ffffffdd;
+}
+
+@keyframes loader {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100dvw;
+	height: 4px;
+	background-color: aqua;
+	z-index: 100;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.loader::after {
+	content: " ";
+	display: block;
+	height: 100%;
+	background-color: yellow;
+	animation-name: loader;
+	animation-duration: 8.1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
 }
 
 header {
@@ -26,7 +60,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	width: 100dvw;
-	padding: 10px 20px;
+	padding: 20px;
 	font-size: 0.8em;
 }
 
@@ -36,34 +70,68 @@ svg {
 
 header > div {
 	display: flex;
-    gap: 5px;
-    align-items: center;
+	gap: 5px;
+	align-items: center;
 }
 
 header nav ul {
-	gap: 14px;
+	gap: 20px;
 	display: flex;
 	align-items: center;
 }
 
 header nav ul li {
+	display: flex;
+	overflow: visible;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	position: relative;
 	list-style: none;
+}
+
+header nav li:hover {
+	opacity: 0.6;
+}
+
+header nav ul li::after {
+	opacity: 0;
+	transition: opacity 0.4s 0.1s;
+	position: absolute;
+	bottom: -10px;
+	background-color: rgb(242, 255, 0);
+	content: " ";
+	display: block;
+	height: 10px;
+	width: 120%;
+	z-index: 100;
+}
+
+header nav ul li:hover::after {
+	opacity: 1;
+}
+
+header nav ul li.active::after {
+	opacity: 1;
 }
 
 .wrapper {
 	width: 100%;
-	gap: 5px;
+	gap: 8px;
+	display: flex;
+	height: 100dvh;
+	overflow: hidden;
 }
 
 .card {
 	transition: translate 0.8s ease-in-out, width 0.5s ease-in-out,
 		height 0.5s ease-in-out, top 0.5s ease-in-out, left 0.8s ease-in-out,
 		z-index 0s 0.25s;
-	height: 250px;
+	height: 40%;
 	width: 200px;
-	top: 55%;
-	border-radius: 12px;
+	top: 45%;
 	left: 50%;
+	border-radius: 10px;
 	position: absolute;
 	background-position: center;
 	background-size: cover;
@@ -74,9 +142,13 @@ header nav ul li {
 	top: 0;
 	left: 0;
 	width: 100dvw;
-	height: 100dvh;
+	height: 100vh;
 	border-radius: 0px;
 	aspect-ratio: none;
+}
+
+.card.active .content {
+	opacity: 0;
 }
 
 .first {
@@ -96,8 +168,12 @@ header nav ul li {
 }
 
 .fiveth {
-	z-index: 2;
 	translate: 820px 0px;
+}
+
+.sixth {
+	z-index: 2;
+	translate: 1025px 0px;
 }
 
 .card-1 {
@@ -123,4 +199,102 @@ header nav ul li {
 .card-5 {
 	background-color: pink;
 	background-image: url(assets/timed-cards-5.jpg);
+}
+.card-6 {
+	background-color: pink;
+	background-image: url(assets/timed-cards-6.jpg);
+}
+
+.card .content {
+	display: flex;
+	gap: 3px;
+	align-items: flex-start;
+	justify-content: flex-end;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	padding: 15px;
+	transition: opacity 0.2s ease-in-out;
+	opacity: 1;
+}
+
+.card .content .location {
+	font-size: 0.8em;
+	font-weight: 600;
+}
+
+.card .content .location::before {
+	display: block;
+	content: " ";
+	width: 35px;
+	height: 6px;
+	margin-bottom: 10px;
+	border-radius: 334px;
+	background-color: white;
+}
+
+.card .content .title {
+	font-size: 1.6em;
+	font-weight: bolder;
+}
+
+.content-details .location::before {
+	content: " ";
+	display: block;
+	width: 70px;
+	border-radius: 20px;
+	height: 5px;
+	margin-bottom: 7px;
+	background-color: white;
+}
+
+.content-details .title {
+	font-size: 4em;
+	font-weight: 900;
+}
+
+.content-details {
+	position: fixed;
+	z-index: 100;
+	left: 4%;
+	bottom: 15%;
+	width: 450px;
+	transition: opacity 0.6s ease-in-out;
+	opacity: 1;
+}
+
+.content-details.animate {
+	opacity: 0;
+}
+.status {
+	position: fixed;
+	bottom: 2%;
+	right: 10%;
+	height: 50px;
+	width: 50%;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.counter {
+	color: white;
+	font-size: 3em;
+}
+
+.status > div {
+	width: 100%;
+	height: 10px;
+	border-radius: 20px;
+	background-color: rgb(110, 110, 110);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.status > div .progress {
+	background-color: yellow;
+	height: 100%;
+	border-radius: 200px;
+	transition: width 1s ease-in-out;
 }
