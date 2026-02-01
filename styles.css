@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	overflow: hidden;
+	display: flex;
+	position: relative;
+	height: 100dvh;
+	width: 100dvw;
+	background-color: #1a1a1a;
+	color: #ffffffdd;
+}
+
+header {
+	color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: flex;
+	justify-content: space-between;
+	width: 100dvw;
+	padding: 10px 20px;
+	font-size: 0.8em;
+}
+
+svg {
+	width: 20px;
+}
+
+header > div {
+	display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+header nav ul {
+	gap: 14px;
+	display: flex;
+	align-items: center;
+}
+
+header nav ul li {
+	list-style: none;
+}
+
+.wrapper {
+	width: 100%;
+	gap: 5px;
+}
+
+.card {
+	transition: translate 0.8s ease-in-out, width 0.5s ease-in-out,
+		height 0.5s ease-in-out, top 0.5s ease-in-out, left 0.8s ease-in-out,
+		z-index 0s 0.25s;
+	height: 250px;
+	width: 200px;
+	top: 55%;
+	border-radius: 12px;
+	left: 50%;
+	position: absolute;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.card.active {
+	top: 0;
+	left: 0;
+	width: 100dvw;
+	height: 100dvh;
+	border-radius: 0px;
+	aspect-ratio: none;
+}
+
+.first {
+	translate: 0px 0px;
+}
+
+.second {
+	translate: 205px 0px;
+}
+
+.third {
+	translate: 410px 0px;
+}
+
+.fourth {
+	translate: 615px 0px;
+}
+
+.fiveth {
+	z-index: 2;
+	translate: 820px 0px;
+}
+
+.card-1 {
+	background-image: url(assets/timed-cards-1.jpg);
+	background-color: aqua;
+}
+
+.card-2 {
+	background-color: rgb(255, 82, 82);
+	background-image: url(assets/timed-cards-2.jpg);
+}
+
+.card-3 {
+	background-color: rgb(55, 136, 228);
+	background-image: url(assets/timed-cards-3.jpg);
+}
+
+.card-4 {
+	background-color: rgb(152, 255, 84);
+	background-image: url(assets/timed-cards-4.jpg);
+}
+
+.card-5 {
+	background-color: pink;
+	background-image: url(assets/timed-cards-5.jpg);
+}
